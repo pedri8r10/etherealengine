@@ -361,3 +361,9 @@ View results:
 CLI output provides real-time stats.
 For advanced visualization, output to JSON or navigate to the Grafana dashboards to get the real-time metrics of the microservices setup of the ethereal/ir-engine exposed by the observability namespace.
 
+
+This directory contains research-specific benchmarking scripts and configurations
+used for evaluating microservices vs monolithic deployments of Ethereal Engine.
+
+The core Ethereal Engine source code remains unchanged.
+
