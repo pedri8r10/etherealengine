@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: etherealengine-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: public
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  rules:
+    - host: local.etherealengine.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: local-etherealengine-client
+                port:
+                  number: 3000
+    - host: api-local.etherealengine.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: local-etherealengine-api
+                port:
+                  number: 4000
+    - host: instanceserver-local.etherealengine.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: local-instanceserver
+                port:
+                  number: 5000
+
