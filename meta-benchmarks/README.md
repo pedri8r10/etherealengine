@@ -244,8 +244,8 @@ The build may take up to 15 minutes on the first run, with subsequent builds com
 After the image is built, it will automatically be pushed to the local MicroK8s container registry for deployment.
 
 ## Update Helm Values File
-The deployment uses a Helm configuration file named local.values.yaml. This file is included with the codebase and serves as the main configuration for the deployment.
-If a local file server is being used (as described earlier), make sure to update the api.fileServer.hostUploadFolder setting in local.values.yaml. This should point to the full path of the packages/server/upload directory within the Ethereal Engine folder on the local machine. For example:
+The deployment uses a Helm configuration file named local.microk8s.template.values.yaml. This file is included with the codebase and serves as the main configuration for the deployment.
+If a local file server is being used (as described earlier), make sure to update the api.fileServer.hostUploadFolder setting in local.microk8s.template.values.yaml. This should point to the full path of the packages/server/upload directory within the Ethereal Engine folder on the local machine. For example:
 
 `/home/<OS_USER_NAME>/<ENGINE_FOLDER>/packages/server/upload`
 
@@ -256,7 +256,7 @@ It is important that this path correctly references the upload folder inside the
 
 ## Deploy Ethereal Engine Microservices with its Helm Chart
 Install Ethereal Engine:
-`helm install -f </path/to/local.values.yaml> -f ./packages/ops/configs/db-refresh-true.values.yaml local etherealengine/etherealengine `
+`helm install -f </path/to/local.microk8s.template.values.yaml> -f ./packages/ops/configs/db-refresh-true.values.yaml local etherealengine/etherealengine `
 
 
 
